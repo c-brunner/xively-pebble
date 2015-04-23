@@ -1,0 +1,67 @@
+{
+    "appKeys": {
+        "apiKey": 9,
+        "channel": 1,
+        "channel_1": 10,
+        "channel_2": 11,
+        "channel_3": 12,
+        "channel_4": 13,
+        "chartHeight": 8,
+        "chartWidth": 7,
+        "data": 6,
+        "feed": 0,
+        "icon": 2,
+        "value": 3,
+        "valueMax": 5,
+        "valueMin": 4
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "ksevenm",
+    "longName": "XIVELY",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/icon_app.png",
+                "menuIcon": true,
+                "name": "icon_app",
+                "type": "png"
+            },
+            {
+                "file": "images/icon_temperature.png",
+                "name": "ICON_TEMPERATURE",
+                "type": "png"
+            },
+            {
+                "file": "images/icon_meat.png",
+                "name": "ICON_MEAT",
+                "type": "png"
+            },
+            {
+                "file": "images/icon_loading.png",
+                "name": "ICON_LOADING",
+                "type": "png"
+            },
+            {
+                "file": "images/icon_humidity.png",
+                "name": "ICON_HUMIDITY",
+                "type": "png"
+            },
+            {
+                "file": "images/icon_bbq.png",
+                "name": "ICON_BBQ",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "2",
+    "shortName": "XIVELY",
+    "uuid": "794feab6-0934-4d11-9323-2d2dc7950167",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
