@@ -84,7 +84,7 @@ function requestFeed(feed, channel, chartWidth, chartHeight)
 	var settings = JSON.parse(localStorage.getItem("settings"));
 
 	var req = new XMLHttpRequest();
-	var url = 'https://api.xively.com/v2/feeds/' + feed + '/datastreams/' + channel + '.json?interval=300&duration=8hours&key=' + settings.apiKey;
+	var url = 'https://api.xively.com/v2/feeds/' + feed + '/datastreams/' + channel + '.json?interval=' + settings.interval + '&duration=' + settings.duration + '&key=' + settings.apiKey;
 
 	req.open('GET', url, true);
 	req.onload = function(e)

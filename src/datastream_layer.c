@@ -53,8 +53,13 @@ DataStreamLayer* datastream_layer_create(uint32_t feed, const char* channel, GPo
 	
 	DataStreamLayer* layer = malloc (sizeof(DataStreamLayer));
 	
+	layer->value[0] = '\0';
+	layer->valueMin[0] = '\0';
+	layer->valueMax[0] = '\0';
+
 	layer->resource = 0;
 	layer->feed = feed;
+	
 	copy_string (channel, layer->channel, sizeof(layer->channel));
 
 	layer->layer = layer_create(GRect(pos.x, pos.y, 144, LAYER_HEIGHT));
@@ -186,8 +191,17 @@ void datastream_layer_request_data(DataStreamLayer* layer)
 {
 	if (layer == NULL)
 		return;
-
+	
 //	APP_LOG(APP_LOG_LEVEL_DEBUG, "-> request_datastream %u, %s", (unsigned int)layer->feed, layer->channel);
+
+	int length = strlen(layer->value);
+	if (length == 0 || layer->value[length - 1] != '~')
+	{
+		layer->value[length] = '~';
+		layer->value[length + 1] = '\0';
+		
+		text_layer_set_text(layer->text, layer->value);
+	}
 
 	DictionaryIterator *iter;
 	

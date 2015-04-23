@@ -102,7 +102,7 @@ static void in_received_handler(DictionaryIterator *dict, void *context)
 			}
 		}
 	
-		datastream_layer_request_data(ds[0]);
+		// datastream_layer_request_data(ds[0]);
 	}
 }
 
@@ -121,7 +121,11 @@ void handle_tick(struct tm *tick_time, TimeUnits units_changed)
 	strftime (time_str, sizeof(time_str), "%R", tick_time);
 	text_layer_set_text(datetime, time_str);
 	
-	datastream_layer_request_data(ds[0]);
+	for (int idx = 0; idx < DATASTREAM_PORTS; idx++)
+	{
+		datastream_layer_request_data(ds[idx]);
+	}
+
 }
 
 void init(void)
@@ -164,7 +168,7 @@ void deinit(void)
 	layer_remove_from_parent(text_layer_get_layer(datetime));
 	text_layer_destroy(datetime);
 	
-	for (int idx = 0; idx < 1; idx++)
+	for (int idx = 0; idx < DATASTREAM_PORTS; idx++)
 	{
 		datastream_layer_destroy(ds[idx]);
 	}
